@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Update Word</title>
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template1.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/blue.css}"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+  />
+</head>
+<body class="blue">
+<div class="blue-title">
+  <span>Update Word</span>
+</div>
+<div id="add-form">
+  <form class="simple_form new_definition" id="new_definition" th:object="${updateWordDTO}"
+        th:action="@{/word/update}" method="post">
+    <div class="blue-inner">
+      <div id="add_form">
+        <div class="help-block">
+          Update this word
+        </div>
+        <div class="input string optional">
+          <input class="string optional definition_word"
+                 placeholder="Term" type="text"
+                 id="term"
+                 name="term"
+                 th:value="${word.term}"
+          >
+          <p
+              th:if="${#fields.hasErrors('term')}"
+              th:errors="*{term}"
+              class="error-message"
+          ></p>
+          <input type="hidden" name="id" th:value="${word.wordId}">
+          <div class="checkbox-wrapper-4 flex items-center">
+            <input
+                class="inp-cbx"
+                id="morning"
+                type="checkbox"
+                name="skipTermCheck"
+                value="true"
+                th:checked="${session.skipTermChecked}"
+            />
+            <label class="cbx" for="morning"
+            ><span>
+                  <svg width="12px" height="10px">
+                    <use xlink:href="#check-4"></use></svg></span
+            ><span class="text-denim">Skip check duplicate term</span></label
+            >
+            <svg class="inline-svg">
+              <symbol id="check-4" viewbox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </symbol>
+            </svg>
+          </div>
+        </div>
+        <div class="input string optional my-4">
+          <input type="text" class="string optional"
+                 id="pronunciation"
+                 name="pronunciation"
+                 th:value="${word.pronunciation}"
+                 placeholder="Type the pronunciation of this word...">
+          <p
+              th:if="${#fields.hasErrors('pronunciation')}"
+              th:errors="*{pronunciation}"
+              class="error-message"
+          ></p>
+        </div>
+        <select class="select required mb-1" id="language" name="language">
+          <option value="">-- Select Language --</option>
+          <option
+              th:selected="${word.language.id == lang.id}"
+              th:each="lang : ${languageListAvailable}"
+              th:value="${lang.id}"
+              th:text="${lang.name}"
+          ></option>
+        </select>
+        <p
+            th:if="${#fields.hasErrors('language')}"
+            th:errors="*{language}"
+            class="error-message"
+        ></p>
+        <div class="help-block mt-4 font-bold"> List of definitions (if you edit or remove a definition, it will be
+          performed immediately)
+        </div>
+        <div th:each="definition : ${word.definitions}">
+          <p class="break-words meaning mb-1">
+            <span class="font-serif"
+                  th:text="${'[' + definition.type.name + '] '}"></span>
+            <span th:class="font-bold" th:text="${definition.definition}"></span>
+            <span class="break-words example italic" th:text="${definition.example}"></span>
+          </p>
+          <p><span><a th:href="@{/word/edit-definition(id=${definition.id})}">Edit</a></span> |
+            <a th:href="@{/word/delete-definition(id=${definition.id})}">Delete</a>
+          </p>
+        </div>
+        <div class="text-center">
+          <p style="opacity: 0.7">
+            <a th:href="@{/word/add-definition(id=${word.wordId})}"
+               class="links cursor-pointer text-denim hover:text-limon-lime mt-2"
+            >Add more definition!</a>
+          </p>
+        </div>
+      </div>
+      <input class="button large expand radius submit-button" type="submit" value="Update!">
+    </div>
+  </form>
+</div>
+<a class="close-blue" th:href="@{/home}">×</a>
+</body>
+</html>

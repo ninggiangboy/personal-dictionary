@@ -1,0 +1,390 @@
+<div th:fragment="header">
+    <header class="bg-yankees">
+        <div class="px-2 md:block container mx-auto py-3 max-w-[970px]">
+            <div class="flex items-center mb-2 flex-nowrap">
+                <a aria-label="Home page" class="block flex" th:href="@{/home}"
+                ><img
+                        src="../static/assets/image/logo.png"
+                        th:src="@{/assets/image/logo.png}"
+                        alt="logo"
+                        id="logo_img"
+                /></a>
+                <div class="relative w-full flex items-center w-auto">
+                    <div>
+                        <ul class="flex text-sm flex-row">
+                            <li class="relative">
+                                <button
+                                        class="browse-button cursor-pointer flex items-center text-white font-bold px-3 gap-1 hover:text-chartreuse-yellow"
+                                        type="button"
+                                        aria-label="Show browse menu"
+                                >
+                                    Browse<span class="triangle triangle-down mt-1"></span>
+                                </button>
+                                <div
+                                        class="browse-menu absolute top-0 w-72 mt-5 pt-3 z-10 display_none"
+                                >
+                                    <span class="triangle triangle-up relative left-8"></span>
+                                    <div
+                                            class="bg-white relative top-0 left-0 w-full rounded-md shadow-lg border border-t-0 border-b-2 border-black p-4"
+                                    >
+                                        <ul
+                                                class="p-0 list-none m-0 font-bold text-sm grid grid-cols-5 gap-1 gap-y-2"
+                                        >
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with A"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=A)}"
+                                                >A</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with B"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=B)}"
+                                                >B</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with C"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=C)}"
+                                                >C</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with D"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=D)}"
+                                                >D</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with E"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=E)}"
+                                                >E</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with F"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=F)}"
+                                                >F</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with G"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=G)}"
+                                                >G</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with H"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=H)}"
+                                                >H</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with I"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=I)}"
+                                                >I</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with J"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=J)}"
+                                                >J</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with K"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=K)}"
+                                                >K</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with L"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=L)}"
+                                                >L</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with M"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=M)}"
+                                                >M</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with N"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=N)}"
+                                                >N</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with O"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=O)}"
+                                                >O</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with P"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=P)}"
+                                                >P</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with Q"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=Q)}"
+                                                >Q</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with R"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=R)}"
+                                                >R</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with S"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=S)}"
+                                                >S</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with T"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=T)}"
+                                                >T</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with U"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=U)}"
+                                                >U</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with V"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=V)}"
+                                                >V</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with W"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=W)}"
+                                                >W</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with X"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=X)}"
+                                                >X</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with Y"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=Y)}"
+                                                >Y</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with Z"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character=Z)}"
+                                                >Z</a
+                                                >
+                                            </li>
+                                            <li>
+                                                <a
+                                                        aria-label="Show words beginning with symbols"
+                                                        class="nav-link"
+                                                        th:href="@{/browse(character='*')}"
+                                                >#</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="relative">
+                                <button
+                                        class="browse-button cursor-pointer flex items-center text-white font-bold px-3 gap-1 hover:text-chartreuse-yellow"
+                                        type="button"
+                                        aria-label="Show browse menu"
+                                >
+                                    Language<span class="triangle triangle-down mt-1"></span>
+                                </button>
+                                <div
+                                        class="browse-menu absolute top-0 w-72 mt-5 pt-3 z-10 display_none"
+                                >
+                                    <span class="triangle triangle-up relative left-8"></span>
+                                    <div
+                                            class="bg-white relative top-0 left-0 w-full rounded-md shadow-lg border border-t-0 border-b-2 border-black p-4"
+                                    >
+                                        <ul th:if="${#lists.isEmpty(wordList)}"
+                                            class="p-0 list-none m-0 font-bold text-sm grid gap-2 gap-y-2">
+                                            <li th:if="${#lists.isEmpty(wordList)}">
+                                                <p>Create a new word first</p>
+                                            </li>
+                                        </ul>
+                                        <ul th:unless="${#lists.isEmpty(wordList)}"
+                                            class="p-0 list-none m-0 font-bold text-sm grid grid-cols-2 gap-2 gap-y-2"
+                                        >
+
+                                            <li th:each="language : ${languageList}">
+                                                <a
+                                                        class="nav-language"
+                                                        th:href="@{'/language/' + ${language.name}}"
+                                                        th:text="${language.name}"
+                                                >Language</a
+                                                >
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li sec:authorize="hasAnyRole('ADMIN', 'SUPER_ADMIN')">
+                                <a
+                                        class="block text-white font-bold px-3 hover:text-chartreuse-yellow"
+                                        th:href="@{/dashboard}"
+                                >Dashboard</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="flex items-center">
+                <form
+                        accept-charset="UTF-8"
+                        th:action="@{/search}"
+                        class="w-full rounded flex-1"
+                        method="get"
+                >
+                    <div class="relative">
+                        <svg
+                                class="absolute left-3 top-2.5 z-50"
+                                fill="none"
+                                height="20"
+                                viewBox="0 0 16 15"
+                                width="20"
+                                xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                    class="fill-iron dark:fill-white"
+                                    d="m14.6719 12.8906-3.2813-3.2812c.7383-1.0938 1.1211-2.461.9297-3.9375-.3555-2.5156-2.4062-4.539-4.8945-4.8672C3.707.3398.5625 3.4844 1.0273 7.203c.3282 2.4883 2.3516 4.5391 4.8672 4.8946 1.4766.1914 2.8438-.1915 3.9649-.9297l3.2539 3.2812c.4375.4102 1.1211.4102 1.5586 0 .4101-.4375.4101-1.1211 0-1.5586ZM3.1602 6.4375c0-1.914 1.5585-3.5 3.5-3.5 1.914 0 3.5 1.586 3.5 3.5 0 1.9414-1.586 3.5-3.5 3.5a3.4893 3.4893 0 0 1-3.5-3.5Z"
+                            ></path>
+                        </svg>
+                        <a aria-label="Random definitions" th:href="@{/random}">
+                            <svg
+                                    class="fill-denim dark:fill-white absolute right-3 top-2.5"
+                                    fill="none"
+                                    viewBox="0 0 17 16"
+                                    width="20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                        d="M13.25 8.96875C12.75 8.5 12 8.84375 12 9.5V11h-1.5L4.78125 3.40625C4.59375 3.15625 4.3125 3 4 3H1c-.5625 0-1 .46875-1 1 0 .5625.4375 1 1 1h2.5l5.6875 7.625c.1875.25.46875.375.8125.375h1.9688v1.5c0 .6875.8124 1.0312 1.2812.5312l2.5-2.5c.2812-.2812.2812-.75 0-1.0624l-2.5-2.50005ZM10.5 5h1.4688v1.53125c0 .65625.8124 1 1.2812.5l2.4688-2.46875C16 4.25 16 3.78125 15.7188 3.5L13.25 1c-.5-.5-1.2812-.15625-1.2812.53125V3H10c-.34375 0-.625.15625-.8125.40625l-1.25 1.6875L9.15625 6.75 10.5 5Zm-7 6H1c-.5625 0-1 .4688-1 1 0 .5625.4375 1 1 1h3c.3125 0 .59375-.125.78125-.375l1.25-1.6875L4.8125 9.25 3.5 11Z"
+                                ></path>
+                            </svg>
+                        </a>
+                        <select name="searchMode"
+                                class="text-center dark:bg-chocolate bg-wild-sand dark:text-white select required absolute right-6 top-2 right-align"
+                                id="type">
+                            <option value="1" th:selected="${session.searchMode == 1}">Term</option>
+                            <option value="2" th:selected="${session.searchMode == 2}">Definition</option>
+                            <option value="3" th:selected="${session.searchMode == 3}">Example</option>
+                        </select>
+                        <input
+                                aria-label="Search"
+                                autocapitalize="off"
+                                autocomplete="off"
+                                class="h-10 w-full py-2 pr-20 rounded-lg placeholder-silver px-10 bg-wild-sand dark:bg-chocolate dark:text-white"
+                                dir="auto"
+                                name="term"
+                                placeholder="Search"
+                                spellcheck="false"
+                                tabindex="0"
+                                th:value="${searchTerm}"
+                                type="text"
+                        />
+                    </div>
+                    <button class="invisible absolute" type="submit">Search</button>
+                </form>
+                <ul class="flex" sec:authorize="isAuthenticated()">
+                    <li>
+                        <a
+                                aria-label="User settings"
+                                class="flex items-center justify-center bg-denim rounded-full w-10 h-10 ml-2 shadow-md text-white hover:text-limon-lime w-12 h-12 ml-3 active:translate-y-0 5"
+                                th:href="@{/user}"
+                        >
+                            <svg
+                                    class="fill-current"
+                                    height="25"
+                                    viewBox="0 0 64 64"
+                                    width="25"
+                                    xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                        d="M32 37c-7 0-13-7-13-16 0-8 6-15 13-15s13 7 13 15c0 9-6 16-13 16zM12 58s-3 0-4-2v-4l1-2 7-11c2-2 4-2 6-1l3 3 6 2h2c4 0 6-1 7-2l3-3c1-1 3-1 5 1 4 4 7 11 7 11l1 2v4c-1 2-4 2-4 2H12z"
+                                ></path>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <div class="flex" sec:authorize="!isAuthenticated()">
+                    <a
+                            aria-label="User login"
+                            class="flex items-center justify-center text-white w-full font-bold p-4 rounded-full hover:text-chartreuse-yellow focus:outline-none active:translate-y-0 5"
+                            href="/login"
+                    ><span class="ml-2">Sign in</span></a
+                    >
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

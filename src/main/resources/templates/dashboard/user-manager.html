@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User Manager</title>
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template1.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/blue.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/dashboard.css}"
+      href="../../static/assets/css/dashboard.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+  />
+</head>
+<body class="blue">
+<div class="blue-title">
+  <span>User Manager</span>
+</div>
+<div class="dashboard-main">
+  <form th:action="@{/dashboard/users}" method="get">
+    <div class="input string optional my-4 flex items-center">
+      <input type="text" class="string optional"
+             placeholder="Enter username or email of user to search..."
+             name="username">
+    </div>
+  </form>
+  <div th:if="${yourself != null}">
+    <div th:replace="~{fragment/search-user.html :: yourself}"></div>
+  </div>
+  <div th:if="${param.username != null && userSearched != null}">
+    <div th:replace="~{fragment/search-user.html :: searched-user}"></div>
+  </div>
+  <div th:if="${param.username != null && userSearched == null && yourself == null}">
+    <div th:replace="~{fragment/search-user.html :: not-found-user}"></div>
+  </div>
+</div>
+<a class="close-blue" th:href="@{/dashboard}">×</a>
+</body>
+</html>

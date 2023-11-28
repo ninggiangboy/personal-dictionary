@@ -1,0 +1,66 @@
+<div th:fragment="word-details">
+  <div class="definition bg-white mb-4 shadow-light dark:bg-yankees dark:text-white rounded-md overflow-hidden">
+    <div class="p-5 md:p-8">
+      <div class="flex">
+        <h1 class="flex-1">
+          <a
+              class="word text-denim font-bold font-serif dark:text-fluorescent break-all text-3xl md:text-[2.75rem] md:leading-10"
+              th:text="${word.term}"
+          >Term</a
+          >
+        </h1>
+      </div>
+      <h2
+          class="mb-5 text-gray-400 font-bold font-serif dark:text-white text-2xl"
+          th:text="${word.pronunciation}"
+      >
+        pronunciation
+      </h2>
+      <div th:each="definition : ${word.definitions}">
+        <p class="break-words meaning mb-4 font-bold">
+                      <span
+                          class="text-denim dark:text-fluorescent font-serif"
+                          th:text="${'[' + definition.type.name + '] '}"
+                      >type</span
+                      ><span th:text="${definition.definition}"
+        >definition</span
+        >
+        </p>
+        <div
+            class="break-words example italic mb-4"
+            th:text="${definition.example}"
+        >
+          example
+        </div>
+      </div>
+
+      <div class="mt-5 md:mt-8 flex justify-between items-center">
+        <div
+            class="contributor font-bold"
+            th:text="${#temporals.format(word.createdAt, 'MMMM dd yyyy')}"
+        >
+          Time
+        </div>
+        <div th:if="${word.editable}" class="flex items-center">
+          <a th:href="@{/word/update(id=${word.wordId})}">
+            <button
+                class="relative flex items-center border shadow-sharp border-black dark:border-white p-3 pr-2 pl-4 rounded-tl-3xl rounded-bl-3xl hover:bg-limon-lime hover:text-white dark:hover:bg-fluorescent active:translate-y-0 5 justify-center min-w-[9ch] cursor-pointer"
+                type="button"
+            >
+              <span class="text-xs font-bold">Edit</span>
+            </button>
+          </a>
+          <a th:href="@{/word/delete(id=${word.wordId})}">
+            <button
+                class="relative flex items-center border shadow-sharp border-black dark:border-white border-l-0 p-3 pl-2 pr-4 rounded-tr-3xl rounded-br-3xl hover:text-white hover:bg-red dark:hover:bg-fluorescent active:translate-y-0 5 justify-center min-w-[9ch] cursor-pointer"
+                type="submit"
+            >
+              <span class="text-xs font-bold">Remove</span>
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

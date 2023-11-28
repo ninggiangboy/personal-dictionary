@@ -1,0 +1,56 @@
+<aside th:fragment="define" class="lg:w-[300px] order-2">
+  <div class="mb-1 lg:flex lg:flex-col">
+    <div
+        class="bg-white p-5 shadow-light dark:bg-yankees rounded-t-md"
+    >
+      <div class="flex items-center justify-between mb-4">
+        <div
+            class="slogan flex flex-col items-start text-mine-shaft uppercase font-bold text-2xl leading-7 position-relative"
+        >
+                      <span
+                          class="block bg-chartreuse-yellow dark:bg-fluorescent border-b border-solid border-transparent px-1"
+                      >Create</span
+                      ><span
+            class="block bg-chartreuse-yellow dark:bg-fluorescent border-b border-solid border-transparent px-1"
+        >Your Own</span
+        ><span
+            class="block bg-chartreuse-yellow dark:bg-fluorescent border-b border-solid border-transparent px-1"
+        >Dictionary</span
+        >
+        </div>
+        <div
+            class="flex rounded-full w-32 h-32 bg-cover border border-black"
+        >
+          <img
+              class="flex rounded-full w-full bg-cover border border-black img-cover border-img"
+              th:unless="${user != null && user.imageUrl != null}"
+              src="https://media3.giphy.com/media/WVYksxODMY4vK/100.webp"
+          />
+
+          <img
+              class="flex rounded-full w-full bg-cover border border-black img-cover border-img"
+              th:if="${user != null && user.imageUrl != null}"
+              th:src="@{'/image/' + ${user.imageUrl}}"
+          />
+        </div>
+      </div>
+      <a
+          class="flex items-center justify-center bg-denim text-white w-full font-bold p-4 rounded-full hover:text-limon-lime focus:outline-none active:translate-y-0 5"
+          th:href="@{/word/create}"
+      >
+        <svg
+            class="fill-current"
+            height="16"
+            viewBox="0 0 48 48"
+            width="26"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+              d="M43 20H29V5a4 4 0 1 0-9 0v15H6a4 4 0 0 0-4 4 4 4 0 0 0 1 3 4 4 0 0 0 3 1h14v14a4 4 0 0 0 1 3 4 4 0 0 0 3 2 4 4 0 0 0 5-5V28h14a4 4 0 0 0 0-8z"
+          ></path>
+        </svg>
+        <span class="ml-2">Define a Word</span></a
+      >
+    </div>
+  </div>
+</aside>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Language Manager</title>
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template1.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/blue.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/dashboard.css}"
+      href="../../static/assets/css/dashboard.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+  />
+</head>
+<body class="blue">
+<div class="blue-title">
+  <span>Language Manager</span>
+</div>
+<div class="blue-inner">
+  <form th:action="@{/languages/modifier}" method="get">
+    <select name="languageId" class="select required mb-1" id="language">
+      <option value="0">-- Select Language --</option>
+      <option
+          th:each="lang : ${languages}"
+          th:value="${lang.id}"
+          th:text="${lang.name}"
+      ></option>
+    </select>
+    <input type="submit" class="links cursor-pointer text-denim hover:text-limon-lime mt-2" name="action"
+           value="Edit">
+    <span> | </span>
+    <input type="submit" class="links cursor-pointer text-denim hover:text-limon-lime mt-2" name="action"
+           value="Remove">
+    <span> | </span>
+    <a th:href="@{/languages/add}"
+       class="links cursor-pointer text-denim hover:text-limon-lime mt-2 mt-4"
+    >Add language</a>
+  </form>
+  <span
+      th:if="${error}"
+      th:text="${error}"
+      class="error-message"
+  ></span>
+</div>
+<a class="close-blue" th:href="@{/dashboard}">×</a>
+</body>
+</html>

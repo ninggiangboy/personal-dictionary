@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>New Word</title>
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template1.css}"
+  />
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/css/blue.css}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+  />
+</head>
+<body class="blue">
+<div class="blue-title">
+  <span>Define New Word</span>
+</div>
+<div id="add-form">
+  <form class="simple_form new_definition" id="new_definition" th:object="${newWordDTO}"
+        th:action="@{/word/create}" method="post">
+    <div class="blue-inner">
+      <div id="add_form">
+        <div class="help-block">
+          Enter a new word to your dictionary
+        </div>
+        <div class="input string optional definition_word">
+          <input class="string optional"
+                 placeholder="Term" type="text"
+                 id="definition_word"
+                 th:field="*{term}"
+          >
+          <p
+              th:if="${#fields.hasErrors('term')}"
+              th:errors="*{term}"
+              class="error-message"
+          ></p>
+          <div class="checkbox-wrapper-4 flex items-center">
+            <input
+                class="inp-cbx"
+                id="morning"
+                type="checkbox"
+                name="skipTermCheck"
+                value="true"
+                th:checked="${session.skipTermChecked}"
+            />
+            <label class="cbx" for="morning"
+            ><span>
+                  <svg width="12px" height="10px">
+                    <use xlink:href="#check-4"></use></svg></span
+            ><span class="text-denim">Skip check duplicate term</span></label
+            >
+            <svg class="inline-svg">
+              <symbol id="check-4" viewbox="0 0 12 10">
+                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+              </symbol>
+            </svg>
+          </div>
+        </div>
+        <div class="input string optional my-4">
+          <input type="text" class="string optional" th:field="*{pronunciation}"
+                 placeholder="Type the pronunciation of this word...">
+          <p
+              th:if="${#fields.hasErrors('pronunciation')}"
+              th:errors="*{pronunciation}"
+              class="error-message"
+          ></p>
+        </div>
+        <select class="select required mb-1" id="language" th:field="*{language}">
+          <option value="">-- Select Language --</option>
+          <option
+              th:each="lang : ${languageListAvailable}"
+              th:value="${lang.id}"
+              th:text="${lang.name}"
+          ></option>
+        </select>
+        <p
+            th:if="${#fields.hasErrors('language')}"
+            th:errors="*{language}"
+            class="error-message"
+        ></p>
+        <div class="input select required definition_language text-sm mt-4">
+          <div class="help-block">
+            Add first definition of this word. You can add more definitions later.
+          </div>
+          <div class="input text optional definition_meaning">
+          <textarea class="text optional"
+                    placeholder="Type your definition here..."
+                    th:field="*{firstDefinition.definition}"
+                    id="definition_meaning">
+          </textarea>
+            <p
+                th:if="${#fields.hasErrors('firstDefinition.definition')}"
+                th:errors="*{firstDefinition.definition}"
+                class="error-message"
+            ></p>
+          </div>
+          <div class="input text optional definition_example">
+          <textarea class="text optional"
+                    placeholder="Type an example of how it's used in a sentence..."
+                    th:field="*{firstDefinition.example}"
+                    id="definition_example">
+          </textarea>
+            <p
+                th:if="${#fields.hasErrors('firstDefinition.example')}"
+                th:errors="*{firstDefinition.example}"
+                class="error-message"
+            ></p>
+          </div>
+          <select class="select required" id="type" th:field="*{firstDefinition.type}">
+            <option value="">-- Select Type --</option>
+            <option
+                th:each="type : ${typeList}"
+                th:value="${type.id}"
+                th:text="${type.name}"
+            ></option>
+          </select>
+          <p
+              th:if="${#fields.hasErrors('firstDefinition.type')}"
+              th:errors="*{firstDefinition.type}"
+              class="error-message"
+          ></p>
+        </div>
+      </div>
+      <input class="button large expand radius submit-button" type="submit" value="Create!">
+      <div class="text-center">
+        <p style="opacity: 0.7">
+          <input class="links cursor-pointer text-denim hover:text-limon-lime mt-2"
+                 type="submit"
+                 name="addDef"
+                 value="Create word and add more definition!">
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<a class="close-blue" th:href="@{/home}">×</a>
+</body>
+</html>

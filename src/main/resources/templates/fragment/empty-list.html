@@ -1,0 +1,124 @@
+<div th:fragment="not-signin">
+  <div
+      class="definition bg-white mb-4 shadow-light dark:bg-yankees dark:text-white rounded-md overflow-hidden"
+  >
+    <div class="p-5 md:p-8">
+      <div class="flex">
+        <h1 class="flex-1">
+          <a
+              class="word text-denim font-bold font-serif dark:text-fluorescent break-all text-3xl md:text-[2.75rem] md:leading-10"
+          >YR Dictionary</a
+          >
+        </h1>
+      </div>
+      <h2
+          class="mb-5 text-gray-400 font-bold font-serif dark:text-white text-2xl"
+      >
+        your personal dictionary
+      </h2>
+      <div>
+        <p class="break-words meaning mb-4 font-bold">
+                      <span class="text-denim dark:text-fluorescent font-serif"
+                      >[Website] </span
+                      ><span
+        >You are on one right now. YR Dictionary is a place
+                        where you can create and find words.</span
+        >
+        </p>
+        <div class="break-words example italic mb-4">
+          Who would ever read the dictionary? YR Dictionary is way
+          better.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div th:fragment="not-found">
+  <div class="definition bg-white mb-4 shadow-light dark:bg-yankees dark:text-white rounded-md overflow-hidden">
+    <div class="p-5 md:p-8">
+      <div class="flex">
+        <h1 class="flex-1">
+          <a
+              class="word text-denim font-bold font-serif dark:text-fluorescent break-all text-3xl md:text-[2.75rem] md:leading-10"
+          >404</a
+          >
+        </h1>
+      </div>
+      <h2
+          class="mb-5 text-gray-400 font-bold font-serif dark:text-white text-2xl"
+      >
+        Not Found Word(s)
+      </h2>
+      <div>
+        <p class="break-words meaning mb-4 font-bold">
+          <span class="text-denim dark:text-fluorescent font-serif"
+          >[Inform] </span
+          ><span>We can not find the word(s) you need right now. </span>
+        </p>
+        <div class="break-words example italic mb-4">
+          You can add that word(s) to your dictionary.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:fragment="empty-list">
+  <div class="definition bg-white mb-4 shadow-light dark:bg-yankees dark:text-white rounded-md overflow-hidden">
+    <div class="p-5 md:p-8">
+      <div class="flex">
+        <h1 class="flex-1">
+          <a
+              class="word text-denim font-bold font-serif dark:text-fluorescent break-all text-3xl md:text-[2.75rem] md:leading-10"
+          >Welcome</a
+          >
+        </h1>
+      </div>
+      <h2
+          class="mb-5 text-gray-400 font-bold font-serif dark:text-white text-2xl"
+      >
+        Empty Words List
+      </h2>
+      <div>
+        <p class="break-words meaning mb-4 font-bold">
+          <span class="text-denim dark:text-fluorescent font-serif"
+          >[Inform] </span
+          ><span>There are no words in there.</span>
+        </p>
+        <div class="break-words example italic mb-4">
+          You can define a word to start your dictionary.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:fragment="browse">
+  <div class="definition bg-white mb-4 shadow-light dark:bg-yankees dark:text-white rounded-md overflow-hidden">
+    <div class="p-5 md:p-8">
+      <div class="flex">
+        <h1 class="flex-1">
+          <a
+              class="word text-denim font-bold font-serif dark:text-fluorescent break-all text-3xl md:text-[2.75rem] md:leading-10"
+          >Empty</a
+          >
+        </h1>
+      </div>
+      <h2
+          class="mb-5 text-gray-400 font-bold font-serif dark:text-white text-2xl"
+      >
+        There are no words in the list
+      </h2>
+      <div>
+        <p class="break-words meaning mb-4 font-bold">
+          <span class="text-denim dark:text-fluorescent font-serif"
+          >[Inform] </span
+          ><span>There are no words in there.</span>
+        </p>
+        <div class="break-words example italic mb-4">
+          You can define a word.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

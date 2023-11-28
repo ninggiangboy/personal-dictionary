@@ -1,0 +1,11 @@
+.dashboard-main {
+    background: white;
+    margin: 0 auto;
+    padding: 30px 60px;
+    min-width: 600px;
+    width: 40%;
+}
+
+.border-user {
+    border: solid 1px #e6e6e6;
+}

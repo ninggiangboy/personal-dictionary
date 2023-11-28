@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Sign Up</title>
+  <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/assets/css/template.css"
+      th:href="@{/assets/css/template.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../static/assets/css/template1.css"
+      th:href="@{/assets/css/template1.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/blue.css}"
+      href="../../static/assets/css/blue.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+  />
+</head>
+<body class="blue">
+<div class="blue-title">
+  <span>Sign Up</span>
+</div>
+<div class="blue-aligner">
+  <div class="blue-inner">
+    <div class="text-center creature">(●´ω｀●)</div>
+    <div class="sign_in_to_do_things text-center">
+      Create an account to start your dictionary
+    </div>
+    <form th:action="@{/signup}" method="post" th:object="${signUpUserDTO}">
+      <div class="flex justify-between gap-4">
+        <div class="input string optional">
+          <input
+              class="string optional"
+              type="text"
+              id="fullName"
+              placeholder="Full Name"
+              name="fullName"
+              required
+              th:field="*{fullName}"
+          />
+          <span
+              th:if="${#fields.hasErrors('fullName')}"
+              th:errors="*{fullName}"
+              class="error-message"
+          ></span>
+        </div>
+        <div class="input string optional">
+          <input
+              class="string optional"
+              type="text"
+              id="username"
+              placeholder="Username"
+              name="username"
+              required
+              th:field="*{username}"
+          />
+          <span
+              th:if="${#fields.hasErrors('username')}"
+              th:errors="*{username}"
+              class="error-message"
+          ></span>
+        </div>
+      </div>
+
+      <div class="input string optional">
+        <input
+            class="string optional"
+            type="text"
+            id="email"
+            placeholder="Email"
+            name="email"
+            required
+            th:field="*{email}"
+        />
+        <span
+            th:if="${#fields.hasErrors('email')}"
+            th:errors="*{email}"
+            class="error-message"
+        ></span>
+      </div>
+      <div class="input string optional">
+        <input
+            class="string optional"
+            type="password"
+            id="password"
+            placeholder="password"
+            name="password"
+            required
+            th:field="*{password}"
+        />
+        <span
+            th:if="${#fields.hasErrors('password')}"
+            th:errors="*{password}"
+            class="error-message"
+        ></span>
+      </div>
+
+      <button class="button expand radius signup-button" type="submit">
+        Create account
+      </button>
+    </form>
+    <div class="text-center">
+      <p style="opacity: 0.7">
+        Already have an account? <a th:href="@{/login}">Sign in</a>
+      </p>
+    </div>
+  </div>
+</div>
+<a class="close-blue" th:href="@{/}">×</a>
+
+<script
+    type="text/javascript"
+    src="../../static/assets/js/main.js"
+    th:src="@{/assets/js/main.js}"
+></script>
+</body>
+</html>

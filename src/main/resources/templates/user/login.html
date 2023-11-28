@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Login</title>
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template1.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/blue.css}"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+  />
+</head>
+<body class="blue">
+<div class="blue-title">
+  <span>Sign in</span>
+</div>
+<div class="blue-aligner">
+  <div class="blue-inner">
+    <div class="text-center creature">(づ｡◕‿‿◕｡)づ</div>
+    <div class="sign_in_to_do_things text-center">
+      Please sign in to see and define new definitions
+    </div>
+    <form th:action="@{/login}" method="post">
+      <div class="input string optional">
+        <input
+            class="string optional"
+            type="text"
+            id="username"
+            placeholder="username"
+            name="username"
+            th:value="${usernameLogin}"
+            required
+        />
+      </div>
+      <div class="input string optional">
+        <input
+            class="string optional"
+            type="password"
+            id="password"
+            placeholder="password"
+            name="password"
+            required
+        />
+      </div>
+      <div th:if="${param.error}">
+        <p class="error-message" th:text="${session.errorLogin}">
+          Can't login!
+        </p>
+      </div>
+      <div class="group-signin flex items-center justify-between">
+        <div class="checkbox-wrapper-4 flex items-center">
+          <input
+              class="inp-cbx"
+              id="morning"
+              type="checkbox"
+              name="rememberMeCheck"
+          />
+          <label class="cbx" for="morning"
+          ><span>
+                  <svg width="12px" height="10px">
+                    <use xlink:href="#check-4"></use></svg></span
+          ><span>Remember me</span></label
+          >
+          <svg class="inline-svg">
+            <symbol id="check-4" viewbox="0 0 12 10">
+              <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+            </symbol>
+          </svg>
+        </div>
+        <div class="flex items-center">
+          <a style="opacity: 0.7" th:href="@{/reset-password}">Forgot password?</a>
+        </div>
+      </div>
+
+      <button class="button expand radius login-button" type="submit">
+        Login
+      </button>
+      <div class="text-center">
+        <p style="opacity: 0.7">
+          Don't have an account? <a th:href="@{/signup}">Sign up</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>
+<a class="close-blue" th:href="@{/}">×</a>
+<script
+    type="text/javascript"
+    th:src="@{/assets/js/main.js}"
+></script>
+</body>
+</html>

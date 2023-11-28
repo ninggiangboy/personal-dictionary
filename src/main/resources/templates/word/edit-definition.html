@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Edit Definition</title>
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template.css}"
+  />
+  <link
+      rel="stylesheet"
+      type="text/css"
+      th:href="@{/assets/css/template1.css}"
+  />
+  <link rel="stylesheet" type="text/css" th:href="@{/assets/css/blue.css}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Lora&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+      rel="stylesheet"
+  />
+</head>
+<body class="blue">
+<div class="blue-title">
+  <span>Edit a definition</span>
+</div>
+<div id="add-form">
+  <form class="simple_form new_definition" id="new_definition" th:object="${definitionDTO}"
+        th:action="@{/word/edit-definition}" method="post">
+    <div class="blue-inner">
+      <div id="add_form">
+        <div class="input string optional definition_word">
+          <input class="string optional"
+                 placeholder="Term" type="text"
+                 id="definition_word"
+                 readonly
+                 th:value="${definition.word.term}"
+          >
+        </div>
+        <input type="hidden" name="id" th:value="${definition.id}">
+        <div class="input select required definition_language text-sm mt-4">
+          <div class="help-block">
+            Edit this definition
+          </div>
+          <div class="input text optional definition_meaning">
+          <textarea class="text optional"
+                    placeholder="Type your definition here..."
+                    id="definition"
+                    name="definition"
+                    th:text="${definition.definition}">
+          </textarea>
+            <p
+                th:if="${#fields.hasErrors('definition')}"
+                th:errors="*{definition}"
+                class="error-message"
+            ></p>
+          </div>
+          <div class="input text optional definition_example">
+          <textarea class="text optional"
+                    placeholder="Type an example of how it's used in a sentence..."
+                    id="example"
+                    name="example"
+                    th:text="${definition.example}">
+          </textarea>
+            <p
+                th:if="${#fields.hasErrors('example')}"
+                th:errors="*{example}"
+                class="error-message"
+            ></p>
+          </div>
+          <select class="select required" id="type" name="type">
+            <option value="">-- Select Type --</option>
+            <option
+                th:selected="${definition.type.id == type.id}"
+                th:each="type : ${typeList}"
+                th:value="${type.id}"
+                th:text="${type.name}"
+            ></option>
+          </select>
+          <p
+              th:if="${#fields.hasErrors('type')}"
+              th:errors="*{type}"
+              class="error-message"
+          ></p>
+        </div>
+      </div>
+      <input class="button large expand radius submit-button" type="submit" value="Update!">
+    </div>
+  </form>
+</div>
+<a class="close-blue" th:href="@{/word/update(id=${definition.word.wordId})}">×</a>
+</body>
+</html>

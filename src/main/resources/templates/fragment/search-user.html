@@ -1,0 +1,83 @@
+<div th:fragment="searched-user" class="definition bg-white mb-4 border-user rounded-md overflow-hidden">
+  <div class="p-5 md:p-8">
+    <div class="flex">
+      <h1 class="flex-1">
+        <a
+            class="word text-denim font-bold font-serif break-all text-3xl md:text-[2.75rem] md:leading-10"
+            th:text="${userSearched.fullName}"
+        >Full Name</a
+        >
+      </h1>
+    </div>
+    <h2
+        class="flex items-center justify-between mb-5 text-gray-400 font-serif text-2xl"
+    >
+      <span class="font-bold ">
+        <span th:text="${userSearched.username}"></span>
+        <span class="text-denim" th:text="${userSearched.isAdmin() ? ' [Admin]' : ''}"></span>
+      </span>
+      <span th:if="${admin.isSuperAdmin()}" class="text-lg font-sans">
+        <a class="btn btn-primary mr-3"
+           th:href="@{/user/switch-role(id=${userSearched.id})}"
+           th:text="${userSearched.isAdmin() ? 'Remove Admin Role' : 'Set Admin Role'}"
+        >Roles</a>
+      </span>
+    </h2>
+    <div>
+      <p class="break-words mb-4 font-bold">
+        <span th:text="${userSearched.email}">Email@gmail.com</span>
+      </p>
+    </div>
+
+    <div class="mt-5 md:mt-8 flex justify-between items-center">
+      <div
+          class="contributor font-bold"
+          th:text="${#temporals.format(userSearched.createdAt, 'MMMM dd yyyy')}"
+      >
+        Time
+      </div>
+      <div class="flex items-center">
+        <a class="btn btn-primary mr-3"
+           th:href="@{/user/switch-status(id=${userSearched.id})}"
+           th:text="${userSearched.isActive ? 'Disable this account' : 'Activate this account'}"
+        >Status</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div th:fragment="not-found-user" class="definition bg-white mb-4 border-user rounded-md overflow-hidden">
+  <div class="p-5 md:p-8">
+    <div class="flex">
+      <h1 class="flex-1">
+        <a
+            class="word text-denim font-bold font-serif break-all text-3xl md:text-[2.75rem] md:leading-10"
+        >404</a
+        >
+      </h1>
+    </div>
+    <h2
+        class="mb-5 text-gray-400 font-bold font-serif text-2xl"
+    >
+      Not found user or you don't have permission to access info of this user
+    </h2>
+  </div>
+</div>
+
+<div th:fragment="yourself" class="definition bg-white mb-4 border-user rounded-md overflow-hidden">
+  <div class="p-5 md:p-8">
+    <div class="flex">
+      <h1 class="flex-1">
+        <a
+            class="word text-denim font-bold font-serif break-all text-3xl md:text-[2.75rem] md:leading-10"
+        >This's you</a
+        >
+      </h1>
+    </div>
+    <h2
+        class="mb-5 text-gray-400 font-bold font-serif text-2xl"
+    >
+      Why do you need to find information by yourself?
+    </h2>
+  </div>
+</div>

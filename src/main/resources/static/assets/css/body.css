@@ -1,0 +1,27 @@
+@media (min-width: 1024px) {
+    .order-2 {
+        order: 2;
+    }
+
+    .order-1 {
+        order: 1;
+    }
+}
+
+.img-cover {
+    object-fit: cover;
+}
+
+.toggle-radio input:checked + label {
+    color: rgb(0 172 56 / var(--tw-text-opacity));
+}
+
+.toggle-radio label a {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.h-full {
+    height: 100%;
+}

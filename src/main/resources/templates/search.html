@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <title>YR Words</title>
+  <link
+      rel="stylesheet"
+      th:href="@{/assets/css/template.css}"
+  />
+  <link
+      rel="stylesheet"
+      th:href="@{/assets/css/header.css}"
+  />
+  <link
+      rel="stylesheet"
+      th:href="@{/assets/css/body.css}"
+  />
+</head>
+<body class="font-sans text-lg bg-revell dark:bg-chocolate pb-48">
+<div th:replace="~{fragment/header.html :: header}"></div>
+<main class="px-3 md:px-0">
+  <div class="container mx-auto py-4 max-w-[970px]">
+    <div class="flex flex-col lg:flex-row mx-0 gap-4">
+      <div th:replace="~{fragment/define.html :: define}"></div>
+      <section sec:authorize="!isAuthenticated()" class="flex-1 order-1">
+        <div th:replace="~{fragment/empty-list.html :: not-signin}"></div>
+      </section>
+      <section sec:authorize="hasRole('USER')" class="flex-1 order-1">
+        <div th:replace="~{fragment/sort.html :: sort}"></div>
+        <div th:if="${#lists.isEmpty(wordList)}">
+          <div th:replace="~{fragment/empty-list.html :: not-found}"></div>
+        </div>
+        <div th:unless="${#lists.isEmpty(wordList)}">
+          <div th:replace="~{fragment/words-list.html :: words-list}"></div>
+          <div th:replace="~{fragment/paging.html :: paging-search}"></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+<script
+    type="text/javascript"
+    th:src="@{/assets/js/main.js}"
+></script>
+</body>
+</html>

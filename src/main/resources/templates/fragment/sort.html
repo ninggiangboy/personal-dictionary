@@ -1,0 +1,63 @@
+<div th:fragment="sort">
+  <ul
+      class="toggle-radio grid grid-cols-5 gap-1 uppercase font-bold mb-4"
+  >
+    <li></li>
+    <li class="flex justify-end items-center">
+                <span class="text-sm dark:text-white text-denim mx-3"
+                >Sort By:
+                </span>
+    </li>
+    <li>
+      <input
+          class="display_none"
+          name="sort"
+          type="radio"
+          id="term"
+          value="1"
+          th:checked="${session.sort == 1}"
+      />
+      <label
+          for="term"
+          class="cursor-pointer rounded-md flex items-center justify-center bg-white dark:bg-yankees w-full text-silver hover:text-limon-lime shadow-light"
+      ><a class="p-1" th:href="@{/sort(mode=1)}">
+        <span class="text-sm">Term</span></a
+      ></label
+      >
+    </li>
+    <li>
+      <input
+          class="display_none"
+          name="sort"
+          type="radio"
+          id="create"
+          value="2"
+          th:checked="${session.sort == 2}"
+      />
+      <label
+          for="create"
+          class="cursor-pointer rounded-md flex items-center justify-center bg-white dark:bg-yankees w-full text-silver hover:text-limon-lime shadow-light"
+      ><a class="p-1" th:href="@{/sort(mode=2)}">
+        <span class="text-sm">Created Time</span></a
+      ></label
+      >
+    </li>
+    <li>
+      <input
+          class="display_none"
+          name="sort"
+          type="radio"
+          id="update"
+          value="3"
+          th:checked="${session.sort == 3}"
+      />
+      <label
+          for="update"
+          class="cursor-pointer rounded-md flex items-center justify-center bg-white dark:bg-yankees w-full text-silver hover:text-limon-lime shadow-light"
+      ><a class="p-1" th:href="@{/sort(mode=3)}">
+        <span class="text-sm">Updated Time</span></a
+      ></label
+      >
+    </li>
+  </ul>
+</div>

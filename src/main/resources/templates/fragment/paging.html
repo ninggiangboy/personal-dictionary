@@ -1,0 +1,171 @@
+<div th:fragment="paging-home">
+  <div th:if="${pages.totalPages > 1}" class="pagination text-xl text-center">
+    <ul class="my-4 flex justify-center">
+      <li
+          th:each="page : ${#numbers.sequence(
+                    (pages.totalPages > 4
+                        ? (pageCurrent > 3
+                            ? (pageCurrent > pages.totalPages - 2
+                                ? pages.totalPages - 4
+                                    : pageCurrent - 2)
+                            : 1)
+                        : 1 ),
+                    (pages.totalPages > 4
+                        ? (pageCurrent > pages.totalPages - 3
+                            ? pages.totalPages
+                            : (pageCurrent > 2
+                                ? pageCurrent + 2
+                                : 5))
+                        : pages.totalPages)
+                  )}"
+      >
+        <a
+            th:class="${page == pageCurrent} ? 'px-3 py-1 rounded-full hover:bg-denim hover:text-white bg-denim text-white' : 'px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white'"
+            th:href="@{/home(page=${page})}"
+            th:text="${page}"
+        ></a>
+      </li>
+    </ul>
+    <ul class="my-4 flex justify-center">
+      <li><a
+          th:unless="${pageCurrent == 1}"
+          class="px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white"
+          th:href="@{/home(page=1)}"
+      >« First</a></li>
+      <li><a
+          th:unless="${pageCurrent == pages.totalPages}"
+          class="px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white"
+          th:href="@{/home(page=${pages.totalPages})}"
+      >Last »</a></li>
+    </ul>
+  </div>
+</div>
+
+<div th:fragment="paging-search">
+  <div th:if="${pages.totalPages > 1}" class="pagination text-xl text-center">
+    <ul class="my-4 flex justify-center">
+      <li
+          th:each="page : ${#numbers.sequence(
+                    (pages.totalPages > 4
+                        ? (pageCurrent > 3
+                            ? (pageCurrent > pages.totalPages - 2
+                                ? pages.totalPages - 4
+                                    : pageCurrent - 2)
+                            : 1)
+                        : 1 ),
+                    (pages.totalPages > 4
+                        ? (pageCurrent > pages.totalPages - 3
+                            ? pages.totalPages
+                            : (pageCurrent > 2
+                                ? pageCurrent + 2
+                                : 5))
+                        : pages.totalPages)
+                  )}"
+      >
+        <a
+            th:class="${page == pageCurrent} ? 'px-3 py-1 rounded-full hover:bg-denim hover:text-white bg-denim text-white' : 'px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white'"
+            th:href="@{/search(term=${searchTerm}, page=${page})}"
+            th:text="${page}"
+        ></a>
+      </li>
+    </ul>
+    <ul class="my-4 flex justify-center">
+      <li><a
+          th:unless="${pageCurrent == 1}"
+          class="px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white"
+          th:href="@{/search(term=${searchTerm}, page=1)}"
+      >« First</a></li>
+      <li><a
+          th:unless="${pageCurrent == pages.totalPages}"
+          class="px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white"
+          th:href="@{/search(term=${searchTerm}, page=${pages.totalPages})}"
+      >Last »</a></li>
+    </ul>
+  </div>
+</div>
+
+<div th:fragment="paging-browse">
+  <div th:if="${pages.totalPages > 1}" class="pagination text-xl text-center">
+    <ul class="my-4 flex justify-center">
+      <li
+          th:each="page : ${#numbers.sequence(
+                    (pages.totalPages > 4
+                        ? (pageCurrent > 3
+                            ? (pageCurrent > pages.totalPages - 2
+                                ? pages.totalPages - 4
+                                    : pageCurrent - 2)
+                            : 1)
+                        : 1 ),
+                    (pages.totalPages > 4
+                        ? (pageCurrent > pages.totalPages - 3
+                            ? pages.totalPages
+                            : (pageCurrent > 2
+                                ? pageCurrent + 2
+                                : 5))
+                        : pages.totalPages)
+                  )}"
+      >
+        <a
+            th:class="${page == pageCurrent} ? 'px-3 py-1 rounded-full hover:bg-denim hover:text-white bg-denim text-white' : 'px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white'"
+            th:href="@{/browse(character=${searchChar}, page=${page})}"
+            th:text="${page}"
+        ></a>
+      </li>
+    </ul>
+    <ul class="my-4 flex justify-center">
+      <li><a
+          th:unless="${pageCurrent == 1}"
+          class="px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white"
+          th:href="@{/browse(character=${searchChar}, page=1)}"
+      >« First</a></li>
+      <li><a
+          th:unless="${pageCurrent == pages.totalPages}"
+          class="px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white"
+          th:href="@{/browse(character=${searchChar}, page=${pages.totalPages})}"
+      >Last »</a></li>
+    </ul>
+  </div>
+</div>
+
+<div th:fragment="paging-language">
+  <div th:if="${pages.totalPages > 1}" class="pagination text-xl text-center">
+    <ul class="my-4 flex justify-center">
+      <li
+          th:each="page : ${#numbers.sequence(
+                    (pages.totalPages > 4
+                        ? (pageCurrent > 3
+                            ? (pageCurrent > pages.totalPages - 2
+                                ? pages.totalPages - 4
+                                    : pageCurrent - 2)
+                            : 1)
+                        : 1 ),
+                    (pages.totalPages > 4
+                        ? (pageCurrent > pages.totalPages - 3
+                            ? pages.totalPages
+                            : (pageCurrent > 2
+                                ? pageCurrent + 2
+                                : 5))
+                        : pages.totalPages)
+                  )}"
+      >
+        <a
+            th:class="${page == pageCurrent} ? 'px-3 py-1 rounded-full hover:bg-denim hover:text-white bg-denim text-white' : 'px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white'"
+            th:href="@{'/language/' + ${searchLanguage} + '?page=' + ${page}}"
+            th:text="${page}"
+        ></a>
+      </li>
+    </ul>
+    <ul class="my-4 flex justify-center">
+      <li><a
+          th:unless="${pageCurrent == 1}"
+          class="px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white"
+          th:href="@{'/language/' + ${searchLanguage} + '?page=1'}"
+      >« First</a></li>
+      <li><a
+          th:unless="${pageCurrent == pages.totalPages}"
+          class="px-3 py-1 rounded-full hover:bg-denim hover:text-white text-light-charcoal dark:text-white"
+          th:href="@{'/language/' + ${searchLanguage} + '?page=' + ${pages.totalPages}}"
+      >Last »</a></li>
+    </ul>
+  </div>
+</div>
